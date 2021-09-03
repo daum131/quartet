@@ -5,7 +5,7 @@
   <div id="app">
     <div class="conatainer mt-5">
 
-
+      <h2>아마띠에 앙상블</h2>
       <div class="col form-inline-row">
         <select class="budget" v-model="selected">
           <option value='' selected>-- part --</option>
@@ -28,7 +28,7 @@
         <div class="p-2 alert alert-secondary">
           <h4>멤버</h4>
           <draggable class="list-group-row" :list="arrBacklog" group="tasks">
-            <div class="list-group-item" v-for="element in arrBacklog" :key="element.name">
+            <div class="list-group-item" v-for="element in arrBacklog" :key="element.name" v-bind:class="[arrBacklog.part? 'Vn1':'']">
               {{ element.part}}
               {{ element.name}}
             </div>
@@ -74,7 +74,13 @@
 
       <div class="col-md-3">
         <div class="p-2 alert alert-success">
-          <h4>미술실</h4>
+          <h4 class="edit room-3" @click="edit_3">미술실</h4>
+
+          <div class="edit-wrap_3" style="display:none">
+            <input v-model="message" placeholder="연습실 이름" class="roomNameInput_3">
+            <button @click="change_3">변경</button>
+          </div>
+
           <draggable class="list-group-row kanban-column" :list="arrDone" group="tasks">
             <div class="list-group-item" v-for="element in arrDone" :key="element.name">
               {{ element.part}}
@@ -111,12 +117,32 @@
           },
           {
             part: "Vn2",
-            name: "이다음"
+            name: "김세현"
           },
           {
             part: "Vc",
             name: "황정원"
-          }
+          },
+          {
+            part: "Vn1",
+            name: "문승미"
+          },
+          {
+            part: "Va",
+            name: "김은주"
+          },
+          {
+            part: "Vn2",
+            name: "김태섭"
+          },
+          {
+            part: "Vc",
+            name: "심봄이"
+          },
+          {
+            part: "Vc",
+            name: "우혜진"
+          },
         ],
         arrInporgress: [],
         arrTested: [],
@@ -139,7 +165,6 @@
       },
       change() {
         const rommName = document.querySelector('.roomNameInput').value;
-        // document.querySelector(".roomNameInput").innerText = rommName;
         document.querySelector('.room-1').innerHTML = rommName;
         document.querySelector('.edit-wrap').style.display = "none"
       },
@@ -148,11 +173,25 @@
       },
       change_2() {
         const rommName = document.querySelector('.roomNameInput_2').value;
-        // document.querySelector(".roomNameInput").innerText = rommName;
         document.querySelector('.room-2').innerHTML = rommName;
         document.querySelector('.edit-wrap_2').style.display = "none"
+      },
+      edit_3() {
+        document.querySelector('.edit-wrap_3').style.display = "block"
+      },
+      change_3() {
+        const rommName = document.querySelector('.roomNameInput_3').value;
+        document.querySelector('.room-3').innerHTML = rommName;
+        document.querySelector('.edit-wrap_3').style.display = "none"
+      },
+      color(){const item = document.querySelector('.list-group-item');
+        item.style.backgroundColor = "red";
       }
+    
+    },
 
-    }
   }
+
+
+
 </script>
