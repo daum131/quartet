@@ -1,0 +1,39 @@
+.col-md-3>div{
+	min-height: 150px;
+}
+.form-inline-row {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+.list-group-row {
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: 0.25rem;
+    flex-wrap: wrap;
+}
+  select {
+    width: 100px;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #ced4da;
+    font-family: inherit;
+    border-radius: 0px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  select::-ms-expand {
+    display: none;
+  }
+
+  .list-group-item {
+    width: fit-content;
+    height: fit-content;
+}
+
+.list-group-item + .list-group-item {
+     border-top-width: 1 !important;
+}
